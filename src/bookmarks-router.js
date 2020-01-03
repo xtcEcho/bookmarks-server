@@ -50,7 +50,7 @@ router
         .route('/bookmarks/:id')
         .get((req, res) => {
             const { id } = req.params
-            const bookmark = bookmarks.find(b => b.id === id)
+            const bookmark = bookmarks.find(b => b.id == id)
 
             if (!bookmark) {
                 logger.error("Bookmark doesn't exist")
@@ -60,7 +60,7 @@ router
         })
         .delete((req, res) => {
             const {id} = req.params
-            const index = bookmarks.findIndex(b => b.id === id)
+            const index = bookmarks.findIndex(b => b.id == id)
 
             if (index === -1){
                 logger.error("Bookmark doesn't exist")
